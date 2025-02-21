@@ -33,7 +33,7 @@ const Listagem = () => {
             Entrega rápida, embalagens cuidadosas e qualidade
             garantida.Experimente o Japão sem sair do lar com nosso delivery!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
         <S.Lista>
           <S.DestaqueContainer>
@@ -59,7 +59,7 @@ const Listagem = () => {
             incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
             embalados e sabor inesquecível. Peça já!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
         <S.Lista>
           <S.DestaqueContainer>
@@ -85,7 +85,7 @@ const Listagem = () => {
             incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
             embalados e sabor inesquecível. Peça já!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
         <S.Lista>
           <S.DestaqueContainer>
@@ -111,7 +111,7 @@ const Listagem = () => {
             incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
             embalados e sabor inesquecível. Peça já!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
         <S.Lista>
           <S.DestaqueContainer>
@@ -137,7 +137,7 @@ const Listagem = () => {
             incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
             embalados e sabor inesquecível. Peça já!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
         <S.Lista>
           <S.DestaqueContainer>
@@ -163,7 +163,7 @@ const Listagem = () => {
             incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem
             embalados e sabor inesquecível. Peça já!
           </S.Description>
-          <S.Button href="#">Saiba mais</S.Button>
+          <S.Button to="/restaurantes">Saiba mais</S.Button>
         </S.Lista>
       </S.ContainerSecondary>
     </div>

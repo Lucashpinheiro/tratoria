@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
@@ -39,7 +40,7 @@ export const HeaderTitle = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-export const Button = styled.a`
+export const Button = styled(Link)`
   font-size: 14px;
   font-weight: bold;
   margin: 8px;
@@ -48,6 +49,7 @@ export const Button = styled.a`
   background-color: ${colors.letters};
   border: none;
   text-decoration: none;
+  cursor: pointer;
 `
 export const Destaque = styled.p`
   font-size: 14px;
