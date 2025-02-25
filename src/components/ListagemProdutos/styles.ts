@@ -7,6 +7,7 @@ export const ContainerListagem = styled.div`
   gap: 32px;
   margin-top: 52px;
   margin-bottom: 120px;
+  margin-top: 90px;
 `
 export const PizzaTittle = styled.h3`
   color: ${colors.buttonLetters};
@@ -33,7 +34,7 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: bold;
   border: none;
-  margin: 8px;
   padding: 4px 0;
   width: 304px;
+  margin-top: 8px;
 `

@@ -15,7 +15,7 @@ export const Titulo = styled.p`
   color: ${colors.white};
   font-weight: bold;
   position: absolute;
-  top: 460px;
+  top: 450px;
   left: 150px;
 `
 export const Fundo = styled.div`
@@ -23,4 +23,5 @@ export const Fundo = styled.div`
 `
 export const MassaImag = styled.img`
   width: 100%;
+  height: 280px;
 `
