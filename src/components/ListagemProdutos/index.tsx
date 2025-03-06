@@ -44,6 +44,7 @@ const ListagemProdutos = () => {
     setOpenModal(true)
   }
 
+
   return (
     <>
       <P.Fundo>
@@ -54,11 +55,7 @@ const ListagemProdutos = () => {
       <div className="container">
         <P.ContainerListagem>
           {restaurant?.cardapio.map((dish) => (
-            <P.PizzaContainer
-              onClick={() => {
-                setSelectedDish(dish)
-                setOpenModal(true)
-              }}
+            <P.PizzaContainer onClick={() => handleOpenModal(dish)}
             >
               <P.PizzaImage key={dish.id}>
                 <img src={dish.foto} alt={`imagem ${dish.nome} de prato`} />
@@ -77,7 +74,7 @@ const ListagemProdutos = () => {
             <P.ModalTittle>{selectedDish?.nome}</P.ModalTittle>
             <P.ModalText>{selectedDish?.descricao}</P.ModalText>
             <P.ModalText>{selectedDish?.porcao}</P.ModalText>
-            <P.Button>{`Adicionar ao carrinho - R${formataPreco(selectedDish?.preco)}`}</P.Button>
+            <P.Button>{`Adicionar ao carrinho - ${formataPreco(selectedDish?.preco)}`}</P.Button>
           </div>
           <div>
             <P.ModalClose src={Close} onClick={() => setOpenModal(false)} />
