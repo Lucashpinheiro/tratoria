@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const Lista = styled.li`
-  height: 410px;
   background-color: ${colors.white};
   border: 1px solid ${colors.letters};
+  padding-bottom: 16px;
 `
 export const Imag = styled.img`
   width: 100%;
+  height: 270px;
 `
 export const ImagStar = styled.img`
   margin-left: 8px;
@@ -69,7 +70,7 @@ export const DestaquePosition = styled.div`
 `
 export const DestaquePositionLeft = styled.div`
   top: 8px;
-  left: 400px;
+  left: 380px;
   position: absolute;
 `
 export const DestaqueContainer = styled.div`
