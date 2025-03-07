@@ -47,7 +47,7 @@ const ListagemProdutos = () => {
   return (
     <>
       <P.Fundo>
-        <P.MassaImag src={restaurant?.capa} alt="fundo massa" />
+        <P.MassaImag src={restaurant?.capa} />
       </P.Fundo>
       <P.Italiana>{restaurant?.tipo}</P.Italiana>
       <P.Titulo>{restaurant?.titulo}</P.Titulo>
