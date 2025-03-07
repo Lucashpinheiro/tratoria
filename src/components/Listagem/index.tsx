@@ -4,7 +4,7 @@ import star from '../../assets/images/estrela.png'
 
 import * as S from './styles'
 
-export interface RestaurantType {
+export type RestaurantType = {
   id: number
   titulo: string
   destacado: boolean
