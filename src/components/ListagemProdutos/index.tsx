@@ -1,11 +1,15 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import * as P from './styles'
 import Close from '../../assets/images/close.png'
-import { RestaurantType } from '../Listagem'
+import { MenuItemType } from '../Listagem'
+import { useGetDisheQuery } from '../../services/api'
 
-const formataPreco = (preco = 0) => {
+import { add, open } from '../../store/reducers/cart'
+
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -14,34 +18,23 @@ const formataPreco = (preco = 0) => {
 
 const ListagemProdutos = () => {
   const { id } = useParams()
+  const { data: restaurant } = useGetDisheQuery(id!)
 
   const [openModal, setOpenModal] = useState(false)
-  const [restaurant, setRestaurant] = useState<RestaurantType>()
-  const [selectedDish, setSelectedDish] = useState<{
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }>()
+  const [selectedDish, setSelectedDish] = useState<MenuItemType>()
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
-
-  const handleOpenModal = (dish: {
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }) => {
+  const handleOpenModal = (dish: MenuItemType) => {
     setSelectedDish(dish)
     setOpenModal(true)
+  }
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    if (selectedDish) {
+      dispatch(add(selectedDish))
+      dispatch(open())
+    }
   }
 
   return (
@@ -72,7 +65,12 @@ const ListagemProdutos = () => {
             <P.ModalTittle>{selectedDish?.nome}</P.ModalTittle>
             <P.ModalText>{selectedDish?.descricao}</P.ModalText>
             <P.ModalText>Serve: {selectedDish?.porcao}</P.ModalText>
-            <P.Button>{`Adicionar ao carrinho - ${formataPreco(selectedDish?.preco)}`}</P.Button>
+            <P.Button
+              onClick={() => {
+                addToCart()
+                setOpenModal(false)
+              }}
+            >{`Adicionar ao carrinho - ${formataPreco(selectedDish?.preco)}`}</P.Button>
           </div>
           <div>
             <P.ModalClose src={Close} onClick={() => setOpenModal(false)} />

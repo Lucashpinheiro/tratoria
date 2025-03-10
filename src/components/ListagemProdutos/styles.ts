@@ -15,6 +15,7 @@ export const PizzaTittle = styled.h3`
 `
 export const PizzaContainer = styled.li`
   background-color: ${colors.letters};
+  // height: 410px;
   padding: 8px 8px;
   cursor: pointer;
 `
@@ -32,6 +33,7 @@ export const Pizzatext = styled.p`
   line-height: 22px;
   margin-left: 8px;
   margin-right: 8px;
+  height: 120px;
 `
 export const Button = styled.button`
   background-color: ${colors.buttonLetters};
@@ -41,7 +43,7 @@ export const Button = styled.button`
   border: none;
   padding: 4px 0;
   width: 304px;
-  margin-top: 8px;
+  margin-top: 72px;
   cursor: pointer;
 `
 export const ModalContainer = styled.div`

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-
 import star from '../../assets/images/estrela.png'
 
 import * as S from './styles'
+
+import { useGetRestaurantQuery } from '../../services/api'
 
 export type RestaurantType = {
   id: number
@@ -12,26 +12,33 @@ export type RestaurantType = {
   avaliacao: string
   descricao: string
   capa: string
-  cardapio: [
-    {
-      foto: string
-      preco: number
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
+  cardapio: MenuItemType[]
+}
+export type MenuItemType = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 const Listagem = () => {
-  const [restaurants, setRestaurants] = useState<RestaurantType[]>([])
+  const { data, isLoading } = useGetRestaurantQuery()
+  const restaurants: RestaurantType[] = Array.isArray(data)
+    ? data
+    : data
+      ? [data]
+      : []
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [])
+  if (isLoading) {
+    return <p>Carregando...</p>
+  }
+
+  if (!restaurants || restaurants.length === 0) {
+    return <p>Nenhum restaurante encontrado.</p>
+  }
+
   return (
     <div className="container">
       <S.ContainerSecondary>
