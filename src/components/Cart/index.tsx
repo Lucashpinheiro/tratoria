@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import pizza from '../../assets/images/pizza1.png'
 import lixeira from '../../assets/images/lixeira.png'
 import {
   ButtonCan,
