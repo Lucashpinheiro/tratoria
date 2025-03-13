@@ -72,9 +72,9 @@ const ListagemProdutos = () => {
               }}
             >{`Adicionar ao carrinho - ${formataPreco(selectedDish?.preco)}`}</P.Button>
           </div>
-          <div>
+          <P.SmartPhoneClose>
             <P.ModalClose src={Close} onClick={() => setOpenModal(false)} />
-          </div>
+          </P.SmartPhoneClose>
         </P.ModalContent>
         <div className="overlay" onClick={() => setOpenModal(false)}></div>
       </P.ModalContainer>

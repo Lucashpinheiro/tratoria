@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import background from '../../assets/images/fundo.png'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Cover = styled.div`
   background-image: url('${background}');
@@ -19,9 +19,13 @@ export const Title = styled.p`
   margin-top: 138px;
   padding-bottom: 40px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+  }
 `
 export const TitleContainer = styled.div`
-  width: 540px;
+  max-width: 540px;
   align-items: center;
   margin: 0 auto;
 `

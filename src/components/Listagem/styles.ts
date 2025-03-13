@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Lista = styled.li`
   background-color: ${colors.white};
   border: 1px solid ${colors.letters};
   padding-bottom: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 16px;
+  }
 `
 export const Imag = styled.img`
   width: 100%;
@@ -34,6 +38,10 @@ export const ContainerSecondary = styled.ul`
   grid-template-columns: 1fr 1fr;
   gap: 50px 80px;
   margin-top: 80px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
 `
 
 export const HeaderTitle = styled.div`
@@ -67,11 +75,20 @@ export const DestaquePosition = styled.div`
   top: 8px;
   left: 220px;
   position: absolute;
+
+   @media(max-width: ${breakpoints.desktop}) {
+    left: 10px;
+  }
+}
 `
 export const DestaquePositionLeft = styled.div`
   top: 8px;
   left: 380px;
   position: absolute;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    left: 190px;
+  }
 `
 export const DestaqueContainer = styled.div`
   position: relative;
