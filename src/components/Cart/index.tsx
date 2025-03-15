@@ -31,8 +31,8 @@ const Cart = () => {
     }, 0)
   }
 
-  const removeItem = (id: number) => {
-    dispatch(remove(id))
+  const removeItem = (index: number) => {
+    dispatch(remove(index))
   }
 
   return (
@@ -40,13 +40,13 @@ const Cart = () => {
       <Overlay onClick={closeCart} />
       <SideBar>
         <ul>
-          {items.map((item) => (
-            <List key={item.id}>
+          {items.map((item, index) => (
+            <List key={index}>
               <img src={item.foto} />
               <div>
                 <h3>{item.nome}</h3>
                 <p>{`R$ ${formataPreco(item.preco)}`}</p>
-                <ButtonCan onClick={() => removeItem(item.id)} type="button">
+                <ButtonCan onClick={() => removeItem(index)} type="button">
                   <img src={lixeira} />
                 </ButtonCan>
               </div>
