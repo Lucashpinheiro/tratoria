@@ -25,6 +25,10 @@ export const ResturanteLetters = styled.div`
   font-weight: bold;
   color: ${colors.letters};
 
+  span {
+    cursor: pointer;
+  }
+
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 14px;
   }

@@ -26,7 +26,7 @@ const ResturantesHero = () => {
           </Link>
         </S.EfoodLink>
         <S.ResturanteLetters onClick={openCart}>
-          <p>{items.length} produto(s) no carrinho</p>
+          <span><p>{items.length} produto(s) no carrinho</p></span>
         </S.ResturanteLetters>
       </S.RestauranteCover>
     </>
