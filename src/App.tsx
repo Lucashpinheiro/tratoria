@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Restaurantes from './pages/Restaurantes'
 import { store } from './store'
 import Cart from './components/Cart'
+import Checkout from './components/Checkout/Checkout'
 
 const rotas = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ function App() {
       <GlobalCss />
       <RouterProvider router={rotas} />
       <Cart />
+      <Checkout />
     </Provider>
   )
 }

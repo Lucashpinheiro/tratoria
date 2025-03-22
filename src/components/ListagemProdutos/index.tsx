@@ -46,9 +46,12 @@ const ListagemProdutos = () => {
       <P.Titulo>{restaurant?.titulo}</P.Titulo>
       <div className="container">
         <P.ContainerListagem>
-          {restaurant?.cardapio.map((dish) => (
-            <P.PizzaContainer onClick={() => handleOpenModal(dish)}>
-              <P.PizzaImage key={dish.id}>
+          {restaurant?.cardapio.map((dish, index) => (
+            <P.PizzaContainer
+              key={dish.id}
+              onClick={() => handleOpenModal(dish)}
+            >
+              <P.PizzaImage>
                 <img src={dish.foto} alt={`imagem ${dish.nome} de prato`} />
               </P.PizzaImage>
               <P.PizzaTittle>{dish.nome}</P.PizzaTittle>

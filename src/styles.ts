@@ -4,7 +4,8 @@ export const colors = {
   back: '#FFF8F2',
   letters: '#E66767',
   buttonLetters: '#FFEBD9',
-  white: '#FFFFFF'
+  white: '#FFFFFF',
+  inputColor: '#000'
 }
 
 export const breakpoints = {

@@ -25,7 +25,7 @@ const cartSlice = createSlice({
       state.isOpen = false
     },
     remove: (state, action: PayloadAction<number>) => {
-      state.items.splice(action.payload, 1);
+      state.items.splice(action.payload, 1)
     }
   }
 })

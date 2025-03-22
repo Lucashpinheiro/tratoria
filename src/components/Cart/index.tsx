@@ -15,6 +15,7 @@ import { RootReducer } from '../../store'
 
 import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../ListagemProdutos'
+import { open } from '../../store/reducers/checkout'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -33,6 +34,10 @@ const Cart = () => {
 
   const removeItem = (index: number) => {
     dispatch(remove(index))
+  }
+
+  const openCheckout = () => {
+    dispatch(open())
   }
 
   return (
@@ -57,7 +62,13 @@ const Cart = () => {
           <p>Valor total</p>
           <p>{`R${formataPreco(getTotalPrice())}`}</p>
         </Value>
-        <ButtonContinue type="button">Continuar com a entrega</ButtonContinue>
+        <ButtonContinue
+          onClick={() => {
+            openCheckout()
+          }}
+        >
+          Continuar com a entrega
+        </ButtonContinue>
       </SideBar>
     </CartContainer>
   )
