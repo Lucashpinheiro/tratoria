@@ -46,7 +46,7 @@ const ListagemProdutos = () => {
       <P.Titulo>{restaurant?.titulo}</P.Titulo>
       <div className="container">
         <P.ContainerListagem>
-          {restaurant?.cardapio.map((dish, index) => (
+          {restaurant?.cardapio.map((dish) => (
             <P.PizzaContainer
               key={dish.id}
               onClick={() => handleOpenModal(dish)}

@@ -81,7 +81,7 @@ const Checkout = () => {
     const estaAlterado = fildName in form.touched
     const estaInvalido = fildName in form.errors
 
-    if(estaAlterado && estaInvalido) return message
+    if (estaAlterado && estaInvalido) return message
     return ''
   }
 
@@ -108,7 +108,9 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
-                  <small>{getErrorMessage('nomeCartao', form.errors.nomeCartao)}</small>
+                  <small>
+                    {getErrorMessage('nomeCartao', form.errors.nomeCartao)}
+                  </small>
                   <C.CheckoutCartao>
                     <C.CheckoutInputCartaoLeft>
                       <label htmlFor="cartao">Número do cartão</label>
@@ -120,7 +122,9 @@ const Checkout = () => {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
-                      <small>{getErrorMessage('cartao', form.errors.cartao)}</small>
+                      <small>
+                        {getErrorMessage('cartao', form.errors.cartao)}
+                      </small>
                     </C.CheckoutInputCartaoLeft>
                     <C.CheckoutInputCartaoRight>
                       <label htmlFor="cvv">CVV</label>
@@ -186,7 +190,9 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
-                  <small>{getErrorMessage('receber', form.errors.receber)}</small>
+                  <small>
+                    {getErrorMessage('receber', form.errors.receber)}
+                  </small>
                   <label htmlFor="endereco">Endereço</label>
                   <input
                     type="text"
@@ -196,7 +202,9 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
-                  <small>{getErrorMessage('endereco', form.errors.endereco)}</small>
+                  <small>
+                    {getErrorMessage('endereco', form.errors.endereco)}
+                  </small>
                   <label htmlFor="cidade">Cidade</label>
                   <input
                     type="text"
@@ -230,7 +238,9 @@ const Checkout = () => {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
-                      <small>{getErrorMessage('numero', form.errors.numero)}</small>
+                      <small>
+                        {getErrorMessage('numero', form.errors.numero)}
+                      </small>
                     </div>
                   </C.DeliverCep>
                   <label htmlFor="complemento">Complemento (opcional)</label>
