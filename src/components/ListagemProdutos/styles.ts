@@ -69,7 +69,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   @media (max-width: ${breakpoints.tablet}) {
-    width: 280px;
+    width: 278px;
   }
 `
 export const ModalContainer = styled.div`
@@ -81,6 +81,7 @@ export const ModalContainer = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
+
 
   &.visible {
     display: flex;
@@ -95,6 +96,7 @@ export const ModalContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.8);
   }
 
+
   }
 `
 export const ModalText = styled.p`
@@ -105,7 +107,7 @@ export const ModalText = styled.p`
 
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 50%;
-    margin: 16px;
+    margin: 0;
   }
 `
 export const ModalTittle = styled.h3`
@@ -127,9 +129,10 @@ export const ModalDishes = styled.img`
   object-fit: cover;
 
   @media (max-width: ${breakpoints.tablet}) {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     padding-top: 80px;
+    margin-top: 100px;
   }
 `
 export const ModalClose = styled.img`
@@ -138,8 +141,8 @@ export const ModalClose = styled.img`
 
   @media (max-width: ${breakpoints.tablet}) {
     position: absolute;
-    left: 300px;
-    top: -660px;
+    left: 260px;
+    top: -650px;
   }
 `
 export const ModalContent = styled.div`
@@ -152,6 +155,7 @@ export const ModalContent = styled.div`
   @media (max-width: ${breakpoints.tablet}) {
     display: block;
     position: relative;
+    left: 30px;
   }
 `
 export const Italiana = styled.p`

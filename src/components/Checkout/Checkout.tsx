@@ -6,10 +6,12 @@ import { useState } from 'react'
 import { formataPreco } from '../ListagemProdutos'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.checkout)
   const { items } = useSelector((state: RootReducer) => state.cart)
+  const [purchase, {isSuccess}] = usePurchaseMutation()
 
   const dispatch = useDispatch()
 
@@ -74,7 +76,35 @@ const Checkout = () => {
         .required('Este campo é obrigatório')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        delivery: {
+          receiver: values.receber,
+          address: {
+            description: values.receber,
+            city: values.cidade,
+            zipCode: values.cep,
+            number: Number(values.numero),
+            complement: values.complemento
+          }
+        },
+        payment: {
+          card: {
+            name: values.nomeCartao,
+            number: values.cartao,
+            code: values.cvv,
+            expires: {
+              month: Number(values.mes),
+              year: Number(values.ano)
+            }
+          }
+        },
+        products: [
+          {
+            id: 1,
+            price: 5
+          }
+        ]
+      })
     }
   })
   const getErrorMessage = (fildName: string, message?: string) => {
@@ -87,6 +117,31 @@ const Checkout = () => {
 
   return (
     <>
+    {isSuccess?(
+      <C.SuccessContainer className={isSuccess ? 'is-success' : ''}>
+      <C.DeliverSideBar>
+      <C.CheckoutTittle>Pedido realizado</C.CheckoutTittle>
+      <C.OrderText>
+        <p>
+          Estamos felizes em informar que seu pedido já está em processo de
+          preparação e, em breve, será entregue no endereço fornecido.
+        </p>
+        <p>
+          Gostaríamos de ressaltar que nossos entregadores não estão
+          autorizados a realizar cobranças extras.
+        </p>
+        <p>
+          Lembre-se da importância de higienizar as mãos após o recebimento do
+          pedido, garantindo assim sua segurança e bem-estar durante a
+          refeição. Esperamos que desfrute de uma deliciosa e agradável
+          experiência gastronômica. Bom apetite!
+        </p>
+      </C.OrderText>
+      <C.DeliverButton>Concluir</C.DeliverButton>
+      </C.DeliverSideBar>
+    </C.SuccessContainer>
+    ):(
+
       <C.DeliverContainer
         onSubmit={form.handleSubmit}
         className={isOpen ? 'is-open' : ''}
@@ -263,6 +318,7 @@ const Checkout = () => {
           )}
         </div>
       </C.DeliverContainer>
+    )}
     </>
   )
 }

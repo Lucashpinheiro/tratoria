@@ -236,3 +236,26 @@ export const CheckoutButtonVoltar = styled.a`
   padding: 4px 0;
   cursor: pointer;
 `
+export const OrderText = styled.div`
+  p {
+    width: 344px;
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.buttonLetters};
+    margin-bottom: 24px;
+  }
+`
+export const SuccessContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: flex-end;
+  z-index: 1;
+
+  &.is-success {
+    display: flex;
+  }
+`
