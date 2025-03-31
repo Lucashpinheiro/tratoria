@@ -3,6 +3,7 @@ import star from '../../assets/images/estrela.png'
 import * as S from './styles'
 
 import { useGetRestaurantQuery } from '../../services/api'
+import Loader from '../Loader'
 
 export type RestaurantType = {
   id: number
@@ -32,7 +33,7 @@ const Listagem = () => {
       : []
 
   if (isLoading) {
-    return <p>Carregando...</p>
+    return <Loader />
   }
 
   if (!restaurants || restaurants.length === 0) {

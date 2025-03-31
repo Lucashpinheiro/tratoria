@@ -5,8 +5,8 @@ import { GlobalCss } from './styles'
 import Home from './pages/Home'
 import Restaurantes from './pages/Restaurantes'
 import { store } from './store'
-import Cart from './components/Cart'
 import Checkout from './components/Checkout/Checkout'
+import Cart from './components/Cart'
 
 const rotas = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ function App() {
     <Provider store={store}>
       <GlobalCss />
       <RouterProvider router={rotas} />
-      <Cart />
       <Checkout />
+      <Cart />
     </Provider>
   )
 }

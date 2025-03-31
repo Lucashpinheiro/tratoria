@@ -169,15 +169,3 @@ export const DeliverCep = styled.div`
     margin-bottom: 8px;
   }
 `
-
-export const DeliverButton = styled.button`
-  width: 344px;
-  height: 24px;
-  font-size: 14px;
-  font-weight: bold;
-  color: ${colors.letters};
-  background-color: ${colors.buttonLetters};
-  border: none;
-  margin-bottom: 8px;
-  padding: 4px 0;
-`

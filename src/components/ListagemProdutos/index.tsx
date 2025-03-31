@@ -8,6 +8,7 @@ import { MenuItemType } from '../Listagem'
 import { useGetDisheQuery } from '../../services/api'
 
 import { add, open } from '../../store/reducers/cart'
+import Loader from '../Loader'
 
 export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -18,7 +19,7 @@ export const formataPreco = (preco = 0) => {
 
 const ListagemProdutos = () => {
   const { id } = useParams()
-  const { data: restaurant } = useGetDisheQuery(id!)
+  const { data: restaurant, isLoading } = useGetDisheQuery(id!)
 
   const [openModal, setOpenModal] = useState(false)
   const [selectedDish, setSelectedDish] = useState<MenuItemType>()
@@ -35,6 +36,9 @@ const ListagemProdutos = () => {
       dispatch(add(selectedDish))
       dispatch(open())
     }
+  }
+  if (isLoading) {
+    return <Loader />
   }
 
   return (

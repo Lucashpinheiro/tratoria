@@ -27,8 +27,8 @@ const Cart = () => {
   }
 
   const getTotalPrice = () => {
-    return items.reduce((accumulator, currentPrice) => {
-      return (accumulator += currentPrice.preco)
+    return items.reduce((accumulator, currentItem) => {
+      return (accumulator += currentItem.preco)
     }, 0)
   }
 
@@ -40,39 +40,41 @@ const Cart = () => {
     dispatch(open())
   }
 
+  if (items.length === 0) {
+    closeCart()
+  }
+
   return (
-    <>
-      <CartContainer className={isOpen ? 'is-open' : ''}>
-        <Overlay onClick={closeCart} />
-        <SideBar>
-          <ul>
-            {items.map((item, index) => (
-              <List key={index}>
-                <img src={item.foto} />
-                <div>
-                  <h3>{item.nome}</h3>
-                  <p>{`R$ ${formataPreco(item.preco)}`}</p>
-                  <ButtonCan onClick={() => removeItem(index)} type="button">
-                    <img src={lixeira} />
-                  </ButtonCan>
-                </div>
-              </List>
-            ))}
-          </ul>
-          <Value>
-            <p>Valor total</p>
-            <p>{`R${formataPreco(getTotalPrice())}`}</p>
-          </Value>
-          <ButtonContinue
-            onClick={() => {
-              openCheckout()
-            }}
-          >
-            Continuar com a entrega
-          </ButtonContinue>
-        </SideBar>
-      </CartContainer>
-    </>
+    <CartContainer className={isOpen ? 'is-open' : ''}>
+      <Overlay onClick={closeCart} />
+      <SideBar>
+        <ul>
+          {items.map((item, index) => (
+            <List key={index}>
+              <img src={item.foto} />
+              <div>
+                <h3>{item.nome}</h3>
+                <p>{`R$ ${formataPreco(item.preco)}`}</p>
+                <ButtonCan onClick={() => removeItem(index)} type="button">
+                  <img src={lixeira} />
+                </ButtonCan>
+              </div>
+            </List>
+          ))}
+        </ul>
+        <Value>
+          <p>Valor total</p>
+          <p>{`R${formataPreco(getTotalPrice())}`}</p>
+        </Value>
+        <ButtonContinue
+          onClick={() => {
+            openCheckout()
+          }}
+        >
+          Continuar com a entrega
+        </ButtonContinue>
+      </SideBar>
+    </CartContainer>
   )
 }
 
