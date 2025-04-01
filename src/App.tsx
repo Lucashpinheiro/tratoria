@@ -24,8 +24,8 @@ function App() {
     <Provider store={store}>
       <GlobalCss />
       <RouterProvider router={rotas} />
-      <Checkout />
       <Cart />
+      <Checkout />
     </Provider>
   )
 }

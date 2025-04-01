@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import InputMask from 'react-input-mask'
 
 import { RootReducer } from '../../store'
 import { close } from '../../store/reducers/checkout'
@@ -109,12 +110,10 @@ const Checkout = () => {
             }
           }
         },
-        products: [
-          {
-            id: 1,
-            price: 5
-          }
-        ]
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.preco
+        }))
       })
     }
   })
@@ -128,7 +127,7 @@ const Checkout = () => {
 
   return (
     <>
-      {isSuccess ? (
+      {isSuccess && data ? (
         <C.SuccessContainer className={isSuccess ? 'is-success' : ''}>
           <C.DeliverSideBar>
             <C.CheckoutTittle>
@@ -182,13 +181,14 @@ const Checkout = () => {
                     <C.CheckoutCartao>
                       <C.CheckoutInputCartaoLeft>
                         <label htmlFor="cartao">Número do cartão</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="cartao"
                           name="cartao"
                           value={form.values.cartao}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          mask="9999 9999 9999 9999"
                         />
                         <small>
                           {getErrorMessage('cartao', form.errors.cartao)}
@@ -196,13 +196,14 @@ const Checkout = () => {
                       </C.CheckoutInputCartaoLeft>
                       <C.CheckoutInputCartaoRight>
                         <label htmlFor="cvv">CVV</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="cvv"
                           name="cvv"
                           value={form.values.cvv}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          mask="999"
                         />
                         <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
                       </C.CheckoutInputCartaoRight>
@@ -210,25 +211,27 @@ const Checkout = () => {
                     <C.CheckoutInputVenc>
                       <div>
                         <label htmlFor="mes">Mês de vencimento</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="mes"
                           name="mes"
                           value={form.values.mes}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          mask="99"
                         />
                         <small>{getErrorMessage('mes', form.errors.mes)}</small>
                       </div>
                       <div>
                         <label htmlFor="ano">Ano de vencimento</label>
-                        <input
+                        <InputMask
                           type="text"
                           id="ano"
                           name="ano"
                           value={form.values.ano}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
+                          mask="99"
                         />
                         <small>{getErrorMessage('ano', form.errors.ano)}</small>
                       </div>
