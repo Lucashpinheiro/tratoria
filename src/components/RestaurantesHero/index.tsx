@@ -22,7 +22,9 @@ const ResturantesHero = () => {
         </S.ResturanteLetters>
         <S.EfoodLink>
           <Link to="/">
-            <img src={Logo} alt="logo" />
+            <h1>
+              <img src={Logo} alt="logo" />
+            </h1>
           </Link>
         </S.EfoodLink>
         <S.ResturanteLetters onClick={openCart}>

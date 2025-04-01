@@ -4,7 +4,9 @@ const Hero = () => {
   return (
     <Cover>
       <Logo>
-        <img src={logo} alt="logo" />
+        <h1>
+          <img src={logo} alt="logo" />
+        </h1>
       </Logo>
       <TitleContainer>
         <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
